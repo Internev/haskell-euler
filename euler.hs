@@ -20,3 +20,10 @@ prob3 num = foldr (\p acc -> if num `mod` p == 0 && p > acc then p else acc) 0 p
         primes limit = 2 : primes'
           where isPrime (p:ps) n = p*p > n || n `rem` p /= 0 && isPrime ps n
                 primes' = 3 : filter (isPrime primes') [5, 7 .. limit]
+
+-- Problem 4. Largest Palindrome Product.
+prob4 = foldr (\n acc -> if n == reversed n && n > acc then n else acc) 0 prods
+  where
+    reversed :: Integer -> Integer
+    reversed = read . reverse . show
+    prods = [x * y | x <- [900..999], y <- [900..999]]
