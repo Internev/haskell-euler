@@ -31,3 +31,9 @@ prob4 = foldr (\n acc -> if n == reversed n && n > acc then n else acc) 0 prods
 -- Problem 5. Smallest Mulitple.
 -- I did this manually before learning about lcm :(
 prob5 = foldr1 lcm [1..20]
+
+-- Problem 6. Sum Square Difference.
+prob6 = abs $ squareSum - sumSquare
+  where
+    squareSum = sum [x ^ 2 | x <- [1..100]]
+    sumSquare = (sum [1..100]) ^ 2
